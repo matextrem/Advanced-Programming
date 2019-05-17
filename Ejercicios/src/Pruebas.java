@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.LinkedList;
 
 public class Pruebas {
 	
@@ -60,6 +61,14 @@ public class Pruebas {
 		
 	}
 	
+	public int calcularPico(int[] vector, int li, int lf) {
+		int p = (li+lf) /2;
+		if(vector[p-1] < vector[p] && vector[p] > vector[p+1])
+			return p;
+		else if(vector[p+1] > vector[p])
+				return calcularPico(vector,p+1,lf);
+		else return calcularPico(vector,li,p-1);
+	}
 }
 
 
