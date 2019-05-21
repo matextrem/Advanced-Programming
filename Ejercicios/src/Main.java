@@ -22,6 +22,10 @@ public class Main {
 		//System.out.println(arraySort);
 		// System.out.println(myObject.calcularPico(arrayPico, 0, arrayPico.length - 1));
 	
+		String str = "ABC"; 
+        int n = str.length(); 
+        Permutation permutation = new Permutation(); 
+        permutation.permute(str, 0, n - 1); 
 		
 		PaisesLimitrofes paisObject = new PaisesLimitrofes();
 		try {
