@@ -61,6 +61,32 @@ public class Pruebas {
 		
 	}
 	
+	public void shellsort(int[] a) {
+		//first section gets the Knuth's interval sequence (very efficient)
+	    int h=1;
+	    int n = a.length;
+	    while(h<= n/3){
+	        h = 3*h + 1;   //h is equal to highest sequence of h<=length/3 (1,4,13,40...)
+	    }
+
+	    //next section
+	    while(h>0){    //for array of length 10, h=4
+
+	       //similar to insertion sort below
+	       for(int i=h-1; i<n; i++){ 
+
+	            int temp = a[i]; 
+	            int j;              
+
+	            for(j=i; j>h-1 && a[j-h] >= temp; j-=h){
+	                a[j] = a[j-h];                  
+	            }
+	            a[j] = temp;
+	        }
+	        h/=3; 
+	    }
+	}
+	
 	public int calcularPico(int[] vector, int li, int lf) {
 		int p = (li+lf) /2;
 		if(vector[p-1] < vector[p] && vector[p] > vector[p+1])

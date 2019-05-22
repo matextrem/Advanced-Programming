@@ -16,10 +16,12 @@ public class Main {
 		
 		int[] arraySort = {3,4,2,1,5};
 		int[] arrayPico = {1,2,3,1,0,-2};
+	    int[] theArray = {44,5,33,22,765,43,53,12,57,97};
+
 		
 		Signal result = myObject.deleteSegments(signal, volume); // Pre-parcial
-		// myObject.insertionSort(arraySort);
-		//System.out.println(arraySort);
+		myObject.shellsort(arraySort);
+		// System.out.println(arraySort);
 		// System.out.println(myObject.calcularPico(arrayPico, 0, arrayPico.length - 1));
 	
 		String str = "ABC"; 
