@@ -4,6 +4,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Pruebas myObject = new Pruebas();
+		Rotation rotationObj = new Rotation();
 		// System.out.println("Cantidad de movimientos: " + myObject.zapatos(8,new int[] {0,1,2,1,3,4,2,3}));
 		// System.out.println("Cantidad de movimientos 2: " + myObject.zapatos(7,new int[] {3,6,4,8,6,6,2}));
 		// System.out.println("Cantidad de pilas de mesadas: " + myObject.mesadas(5,new int[][] {{10,6},{10,8},{11,9},{12,8},{14,9}}));
@@ -15,12 +16,14 @@ public class Main {
 		int[] volume = {5,8,20,7};
 		
 		int[] arraySort = {3,4,2,1,5};
+		int[] rotateArray = {1,2,3,4,5,6,7,8,9};
 		int[] arrayPico = {1,2,3,1,0,-2};
 	    int[] theArray = {44,5,33,22,765,43,53,12,57,97};
 
 		
 		Signal result = myObject.deleteSegments(signal, volume); // Pre-parcial
 		myObject.shellsort(arraySort);
+		rotationObj.rotate(rotateArray, 3);
 		// System.out.println(arraySort);
 		// System.out.println(myObject.calcularPico(arrayPico, 0, arrayPico.length - 1));
 	
