@@ -26,13 +26,15 @@ public class Main {
 		// rotationObj.rotate(rotateArray, 3);
 	    long startTime = System.currentTimeMillis();
 		NombresRepetidos nombresRepeObj = new NombresRepetidos("nombresRepetidosIn.txt");
-		nombresRepeObj.calcularNombres();
-		nombresRepeObj.escribirArchivo("nombresRepetidosOut.txt");
+		// nombresRepeObj.calcularNombres();
+		 //nombresRepeObj.escribirArchivo("nombresRepetidosOut.txt");
 		long endTime = System.currentTimeMillis();
         System.out.println("It took " + (endTime - startTime) + " milliseconds");
 		// System.out.println(arraySort);
 		// System.out.println(myObject.calcularPico(arrayPico, 0, arrayPico.length - 1));
-	
+        Baldosas baldosasObj = new Baldosas("baldosasIn.txt");
+        baldosasObj.pintarBaldosas();
+        baldosasObj.escribirArchivo("baldosasOut.txt");
 		String str = "ABC"; 
         int n = str.length(); 
         // Permutation permutation = new Permutation(); 
