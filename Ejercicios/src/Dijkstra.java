@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 
 public class Dijkstra {
 	private final int MAX = 10005;
-	private final int INF =Integer.MIN_VALUE;
+	private final int INF =Integer.MAX_VALUE;
 	
 	private ArrayList<List<Node>> ady =  new ArrayList<List <Node>>();
 	private int distancia[] = new int[MAX];
@@ -15,29 +15,30 @@ public class Dijkstra {
 	private PriorityQueue<Node> Q = new PriorityQueue<Node>();
 	private int V;
 	private int previo[] = new int[MAX];
+	private List<Integer> shortestPath = new ArrayList<Integer>();
 	
 	public Dijkstra(int V) {
 		this.setVertices(V);
 		Arrays.fill(distancia, INF);
 		Arrays.fill(visitado, false);
 		Arrays.fill(previo, -1);
-		for(int i = 0; i<V; i++)
+		for(int i = 0; i<=V; ++i)
 			ady.add(new ArrayList<Node>());
 	}
 	
-	void dijkstra(int inicial) {
+	void dijkstra(int inicial, List<Integer> dragons) {
 		Q.add(new Node(inicial, 0));
 		distancia[inicial] = 0;
 		int actual, adyacente,peso;
 		while(!Q.isEmpty()) {
 			actual = Q.element().first;
 			Q.remove();
-			if(visitado[actual]) continue;
+			if(visitado[actual] || dragons.contains(actual)) continue;
 			visitado[actual] = true;
-			for(int i=0; i<ady.get(i).size(); i++) {
+			for(int i=0; i<ady.get(actual).size(); ++i) {
 				adyacente = ady.get(actual).get(i).first;
 				peso = ady.get(actual).get(i).weigth;
-				if(!visitado[adyacente])
+				if(!visitado[adyacente] && !dragons.contains(adyacente))
 					relajacion(actual,adyacente,peso);
 			}
 			
@@ -45,7 +46,7 @@ public class Dijkstra {
 		
 	}
 	
-	private void relajacion(int actual, int adyacente,int peso) {
+	public void relajacion(int actual, int adyacente,int peso) {
 		if(distancia[actual] + peso < distancia[adyacente]) {
 			distancia[adyacente] = distancia[actual] + peso;
 			previo[adyacente] = actual;
@@ -53,23 +54,23 @@ public class Dijkstra {
 		}
 	}
 	
-	void addEdge(int origen, int destino, int peso, boolean dirigido) {
+	public void addEdge(int origen, int destino, int peso, boolean dirigido) {
 		ady.get(origen).add(new Node(destino,peso));
 		if(!dirigido)
 			ady.get(destino).add(new Node(origen,peso));
 	}
 	
-	void printShortestPath(){
-        
-        // print( destino );
+
+	public void calculateShortestPath(int destino){
+        if(previo[destino] != -1)
+        	calculateShortestPath(previo[destino]);
+        this.shortestPath.add(destino);
     }
 	
-	//Impresion del camino mas corto desde el vertice inicial y final ingresados
-    void print( int destino ){
-        if( previo[ destino ] != -1 )    //si aun poseo un vertice previo
-            print( previo[ destino ] );  //recursivamente sigo explorando
-        System.out.printf("%d " , destino );        //terminada la recursion imprimo los vertices recorridos
-    }
+
+	public List<Integer> getShortestPath() {
+		return shortestPath;
+	}
 
 	/**
 	 * @return the v

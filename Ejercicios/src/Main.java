@@ -32,11 +32,14 @@ public class Main {
         System.out.println("It took " + (endTime - startTime) + " milliseconds");
 		// System.out.println(arraySort);
 		// System.out.println(myObject.calcularPico(arrayPico, 0, arrayPico.length - 1));
-        Baldosas baldosasObj = new Baldosas("baldosasIn.txt");
-        baldosasObj.pintarBaldosas();
-        baldosasObj.escribirArchivo("baldosasOut.txt");
+        // Baldosas baldosasObj = new Baldosas("baldosasIn.txt");
+        // baldosasObj.pintarBaldosas();
+        // baldosasObj.escribirArchivo("baldosasOut.txt");
 		String str = "ABC"; 
         int n = str.length(); 
+        Princesa princesaObj = new Princesa("./princesa");
+        princesaObj.resolverCamino();
+        princesaObj.escribirArchivo();
         // Permutation permutation = new Permutation(); 
         // permutation.permute(str, 0, n - 1); 
 		
