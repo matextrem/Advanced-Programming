@@ -37,9 +37,12 @@ public class Main {
         // baldosasObj.escribirArchivo("baldosasOut.txt");
 		String str = "ABC"; 
         int n = str.length(); 
-        Princesa princesaObj = new Princesa("./princesa");
-        princesaObj.resolverCamino();
-        princesaObj.escribirArchivo();
+        // Princesa princesaObj = new Princesa("./princesa");
+        // princesaObj.resolverCamino();
+        // princesaObj.escribirArchivo();
+        Reserve reservaObj = new Reserve("./reserva");
+        reservaObj.resolverCamino();
+        reservaObj.escribirArchivo();
         // Permutation permutation = new Permutation(); 
         // permutation.permute(str, 0, n - 1); 
 		
