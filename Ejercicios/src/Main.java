@@ -41,8 +41,11 @@ public class Main {
         // princesaObj.resolverCamino();
         // princesaObj.escribirArchivo();
         Reserve reservaObj = new Reserve("./reserva");
-        reservaObj.resolverCamino();
-        reservaObj.escribirArchivo();
+        //reservaObj.resolverCamino();
+        //reservaObj.escribirArchivo();
+        Coloreo g = new Coloreo("dsdsd");
+        g.resolver(1);
+        System.out.println("prubea");
         // Permutation permutation = new Permutation(); 
         // permutation.permute(str, 0, n - 1); 
 		
