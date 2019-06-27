@@ -14,7 +14,6 @@ public class Coloreo {
 	private Graph graph;
 	private String path;
 	private Map<Integer, Integer> vertexColor = new HashMap<Integer, Integer>();
-	private int cantColores = 0;
 	private int colorMax = 1;
 	private int[] nodosColoreados; // el indice coincide con el numero de nodo,
 	private int mejorColor = 0;
